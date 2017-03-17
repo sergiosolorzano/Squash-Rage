@@ -7,20 +7,20 @@ var p2 = new playerOneClass();
 var nearTopLeftX=3;
 var nearTopLeftY=248;
 var nearTopRightX=798;
-var nearTopRightY=248;//216
+var nearTopRightY=248;
 var nearBottomLeftX=198;
-var nearBottomLeftY=535;//450
+var nearBottomLeftY=535;
 var nearBottomRightX=612;
-var nearBottomRightY=535;//450
+var nearBottomRightY=535;
 // x,y pixel coordinates on the render of the far wall corners
 var farTopLeftX=272;
-var farTopLeftY=0;//11
+var farTopLeftY=0;
 var farTopRightX=537;
-var farTopRightY=0;//11
-var farBottomLeftX=304;//310
-var farBottomLeftY=200;//174
+var farTopRightY=0;
+var farBottomLeftX=304;
+var farBottomLeftY=200;
 var farBottomRightX=505;
-var farBottomRightY=200;//174
+var farBottomRightY=200;
 
 window.onload = function() {
 	canvas = document.getElementById('gameCanvas');
@@ -85,16 +85,10 @@ function clearScreen() {
 }
 
 function drawAll() {
-	//clearScreen();
 	drawBitmapCenteredWithRotation(squashcourt, canvas.width/2, canvas.height/2, 0);
 	p1.drawShadow();
   p1.drawInAir();
 	p2.drawPlayer();
-  //colorRect(0,0,64,97,"orange");
-  //colorRect(p1.x,p1.y,3,3,"green");
-  //var drawLocation = perspectiveLocation(p2.x,p2.y,0);
-  //console.log(drawLocation.x+35,drawLocation.y+35)
-  //colorRect(drawLocation.x+32,drawLocation.y+35,4,4,"orange");
-  //colorRect(p1.x,p1.y,3,3,"green");
-
+  //colorRect(0,0,64,97,"orange");//real life court
+  //colorRect(p1.x,p1.y,3,3,"green");////real life ball
 }

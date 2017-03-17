@@ -27,7 +27,6 @@ function ballClass(){
     this.z=0;
     this.zv=1.5;
     this.heightOscillate=0.0;
-    //this.scale = 1;//0.75
     this.speedX = 1;
     this.speedY = 2;
   }
@@ -36,7 +35,7 @@ function ballClass(){
     var draw=perspectiveLocation(this.x,this.y,this.z)
     var whichPic = ballPic;
     var ballAnimationFrames = whichPic.width/BALL_W;
-
+    
      if (ballFrameTimer-- < 0) {
             ballFrameTimer = ballStepsPerAnimFrame;
             ballFrame++;
@@ -44,7 +43,6 @@ function ballClass(){
                 ballFrame = 0;
             }
         }
-        //console.log(ballAnimationFrames)
     drawBallAtBaseSheetSprite(whichPic, ballFrame, draw.x, draw.y - draw.z);
     }
 
@@ -61,7 +59,7 @@ function ballClass(){
 
    if(p1.y<=p2.y){
      switch(quadrantHit){
-            //determine if the speedXY change leads to a different quadrant and if it does, ignore the shot there.
+            //todo: determine if the speedXY change leads to a different quadrant and if it does, ignore the shot there.
             case TOPRIGHTQUADRANT:
               this.speedY*=-1;
               ballRaiseSlowShot=0.5;
@@ -80,10 +78,8 @@ function ballClass(){
               this.speedY*=-1;
               ballRaiseSlowShot=0.5;
               break;
-        
         }
     }
-    
 
     this.nextX=this.x+this.speedX;
     this.nextY=this.y+this.speedY;
@@ -91,7 +87,7 @@ function ballClass(){
     //wall bouncing mechanics:
     this.zv += -ballSinkRate + ballRaiseSlowShot;
     this.z += this.zv;
-    console.log(this.z, this.zv,ballRaiseSlowShot)
+    //console.log(this.z, this.zv,ballRaiseSlowShot)
     
     if(this.z>COURT_T){//hit ceiling
       this.z=COURT_T;
@@ -102,7 +98,6 @@ function ballClass(){
       this.z = 0;
     }
     
-
     if(this.nextX<0)  {
       this.speedX*=-1;
     }
@@ -119,7 +114,5 @@ function ballClass(){
 
     this.x += this.speedX;
     this.y += this.speedY;
-
- 
   }
 }//end ballClass

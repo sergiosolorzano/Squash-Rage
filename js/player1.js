@@ -51,6 +51,7 @@ function playerOneClass(){
   this.drawPlayer = function(){
     var drawLocation = perspectiveLocation(this.x,this.y,0);
     
+    //game crashes with this
     //if(this.keyHeld_Gas==false || this.keyHeld_Reverse==false ||  this.keyHeld_TurnLeft== false || this.keyHeld_TurnRight== false || this.keyHeld_Shoot==false){
      // whichPic=p1_standing
     //}
@@ -63,16 +64,7 @@ function playerOneClass(){
                 playerFrame = 0;
             }
         }
-    //console.log(this.keyHeld_TurnRight,whichPic)    
   drawAtBaseSheetSprite(whichPic, playerFrame, drawLocation.x, drawLocation.y);
-
-        //console.log(playerFrame,playerAnimationFrames,whichPic)
-  
-    //for(playerFrame=0;playerFrame<playerAnimationFrames-1;playerFrame++){
-    //}
-    //this.hitWindowCoords();
-    //whichPic = p1_standing; 
-    //console.log(whichPic) 
   }
 
     this.hitGraphicSelection=function(){
@@ -102,7 +94,6 @@ function playerOneClass(){
       const SHIFTTOCENTERY = -3;
       const HITSQUAREW=10;
       const HITSQUAREH=10;
-      
       
       var centreX=this.x+SHIFTTOCENTERX;
       var centreY=this.y+SHIFTTOCENTERY;
@@ -184,11 +175,12 @@ function playerOneClass(){
     this.ballAtReach();
     this.hitGraphicSelection();
     
+    //not achieving desired used
     //if(whichPic!=undefined){
     //whichPic = p1_standing;  
    // }
     
-    if(nextX>=0 && nextX<=COURT_W-2)  {//COURT_W reduced by two so racket doesn't pain black canvas
+    if(nextX>=0 && nextX<=COURT_W-2)  {//COURT_W reduced by two so the racket doesn't paint black canvas outside the court
       this.x=nextX;
     }
 
@@ -197,8 +189,8 @@ function playerOneClass(){
     }   
   }
 
+  //function to determine window range for racket hit
   this.hitWindowCoords = function(){
-    //section to determine window range for racket hit
       const SHIFTTOCENTERX = 0;
       const SHIFTTOCENTERY = -7;
       const HITSQUAREW=15;
@@ -265,8 +257,7 @@ function playerOneClass(){
       var distanceCentreYToCentreTopY= visualCentreTopY-visualCentreY
       //console.log(distanceCentreXToRightCentreX,this.y)
       //console.log(distanceCentreYToCentreTopY)
-      //end section to determine window of racket hit
-      
+      //end of function to determine window of racket hit
   }
 
 }//end playerClass
