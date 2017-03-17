@@ -66,7 +66,6 @@ function imageLoadingDoneSoStartGame() {
 }
 
 function loadLevel() {
-	//drawBitmapCenteredWithRotation(squashcourt, canvas.width/2, canvas.height/2, 0);
 	p1.Init();
 	p2.Init();
 	}
